@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Restowan</title>
-    <link rel="icon" href="/favicon-16x16.png" />
+    <link rel="icon" href="./favicon-16x16.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,15 +22,20 @@
               <a href="#" class="navbar-link">Favorites</a>
               <a href="https://github.com" class="navbar-link">About Us</a>
             </div>
-            <div class="navbar-burger">
+            <button class="navbar-burger">
               <span></span>
               <span></span>
               <span></span>
-            </div>
+            </button>
           </div>
         </div>
       </header>
       <section class="container">
+        <div class="flex justify-center">
+          <button id="skipButton" class="btn btn-primary">
+            Skip to content
+          </button>
+        </div>
         <div class="hero">
           <div class="hero-container">
             <div class="hero-caption">
@@ -48,7 +53,7 @@
           </div>
         </div>
       </section>
-      <section class="section-list">
+      <section id="listSection" class="section-list">
         <div class="container">
           <h2 class="section-title">Daftar Restoran</h2>
           <p class="section-text">

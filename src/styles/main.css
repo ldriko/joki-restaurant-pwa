@@ -21,6 +21,10 @@ textarea {
   min-height: 44px;
 }
 
+button:focus {
+  outline: 2px solid #0ea5e9;
+}
+
 a {
   color: inherit;
   display: flex;
@@ -42,6 +46,10 @@ h4,
 h5,
 h6 {
   font-weight: 900;
+}
+
+.hidden {
+  display: none;
 }
 
 .container {
@@ -96,16 +104,16 @@ h6 {
 
 .navbar-burger {
   display: none;
-  width: 2rem;
-  height: 2rem;
   border: 2px solid #283618;
   cursor: pointer;
   flex-direction: column;
-  padding: 4px;
+  padding: 10px;
   justify-content: center;
+  background-color: #fefae0;
 }
 
 .navbar-burger > span {
+  width: 100%;
   height: 2px;
   background-color: #283618;
   margin: 2px 0;
@@ -244,6 +252,7 @@ h6 {
   border-top: 2px dashed #28361850;
   border-bottom: 2px dashed #28361850;
   padding: 2.5rem 0;
+  scroll-snap-stop: normal;
 }
 
 .section-title {
