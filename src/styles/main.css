@@ -3,12 +3,12 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
-  color: #283618;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
+  color: #283618;
   background-color: #fefae0;
 }
 
@@ -21,8 +21,13 @@ textarea {
 }
 
 a {
+  color: inherit;
   display: flex;
   align-items: center;
+}
+
+a:visited {
+  color: inherit;
 }
 
 h1,
@@ -63,10 +68,12 @@ h6 {
 }
 
 .navbar {
+  background-color: #fefae0;
   position: sticky;
   top: 0;
   height: 5rem;
   border-bottom: 2px solid #283618;
+  z-index: 10;
 }
 
 .navbar_brand {
@@ -75,11 +82,11 @@ h6 {
 }
 
 @media (max-width: 768px) {
-  .navbar__menu {
+  .navbar-menu {
     display: none;
   }
 
-  .navbar__menu.active {
+  .navbar-menu.active {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -90,16 +97,20 @@ h6 {
     padding: 1.25rem;
   }
 
-  .navbar__menu > .navbar__link {
+  .navbar-menu > .navbar-link {
     color: #fefae0 !important;
   }
 
-  .navbar__burger {
+  .navbar-burger {
     display: block !important;
+  }
+
+  .hero-caption {
+    width: auto !important;
   }
 }
 
-.navbar__burger {
+.navbar-burger {
   display: none;
   width: 2rem;
   height: 2rem;
@@ -107,7 +118,7 @@ h6 {
   cursor: pointer;
 }
 
-.navbar__link {
+.navbar-link {
   font-weight: 600;
 }
 
@@ -118,4 +129,53 @@ h6 {
   width: 100%;
   height: 100%;
   background: black;
+}
+
+.hero-container {
+  position: relative;
+  display: flex;
+  margin: 1.25rem 0;
+  border: 2px solid #283618;
+  height: 36rem;
+}
+
+.hero-caption {
+  position: absolute;
+  top: 50%;
+  left: 1.25rem;
+  right: 1.25rem;
+  transform: translateY(-50%);
+  width: 50%;
+  background-color: #fefae0bb;
+  backdrop-filter: blur(10px);
+  border: 2px solid #283618;
+  padding: 2rem;
+}
+
+.hero-caption-title {
+  margin-bottom: 1.25rem;
+}
+
+.hero-caption-text {
+  font-size: 1.125em;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn {
+  border: none;
+  padding: 0 1.25rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #283618;
+  color: #fefae0;
 }
