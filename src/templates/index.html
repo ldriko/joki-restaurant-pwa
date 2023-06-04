@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Restaurant Catalog</title>
+    <title>Restowan</title>
+    <link rel="icon" href="/favicon-16x16.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,7 +22,11 @@
               <a href="#" class="navbar-link">Favorites</a>
               <a href="https://github.com" class="navbar-link">About Us</a>
             </div>
-            <div class="navbar-burger"></div>
+            <div class="navbar-burger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
         </div>
       </header>
@@ -49,7 +54,7 @@
           <p class="section-text">
             Temukan restoran yang cocok dengan preferensi anda!
           </p>
-          <ul class="restaurant-list">
+          <ul id="restaurantList" class="restaurant-list">
             <li class="restaurant-card">
               <img
                 src="https://restaurant-api.dicoding.dev/images/medium/41"

@@ -100,6 +100,15 @@ h6 {
   height: 2rem;
   border: 2px solid #283618;
   cursor: pointer;
+  flex-direction: column;
+  padding: 4px;
+  justify-content: center;
+}
+
+.navbar-burger > span {
+  height: 2px;
+  background-color: #283618;
+  margin: 2px 0;
 }
 
 .navbar-link {
@@ -293,7 +302,8 @@ h6 {
     top: 5rem;
     left: 0;
     width: 100%;
-    background-color: #283618;
+    background-color: #283618ee;
+    backdrop-filter: blur(10px);
     padding: 1.25rem;
   }
 
@@ -302,7 +312,7 @@ h6 {
   }
 
   .navbar-burger {
-    display: block !important;
+    display: flex !important;
   }
 
   .hero-caption {
