@@ -22,7 +22,7 @@ textarea {
 }
 
 button:focus {
-  outline: 2px solid #0ea5e9;
+  outline: 2px solid goldenrod;
 }
 
 a {

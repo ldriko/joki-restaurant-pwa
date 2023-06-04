@@ -55,6 +55,7 @@ const renderRestaurantList = (restaurantListElement, restaurants) => {
     const cardImage = document.createElement('img');
     cardImage.classList.add('restaurant-card-image');
     cardImage.src = restaurant.pictureId;
+    cardImage.alt = restaurant.name;
 
     const cardBody = document.createElement('div');
     cardBody.classList.add('restaurant-card-body');
