@@ -31,6 +31,10 @@ a:visited {
   color: inherit;
 }
 
+li {
+  list-style: none;
+}
+
 h1,
 h2,
 h3,
@@ -49,6 +53,14 @@ h6 {
 
 .flex {
   display: flex;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.shrink-0 {
+  flex-shrink: 0;
 }
 
 .items-center {
@@ -177,14 +189,14 @@ h6 {
 
 .restaurant-card {
   background-color: #fefae0;
-  border: 2px solid #fefae0;
+  border: 2px solid #283618;
 }
 
 .restaurant-card-image {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-bottom: 2px solid #fefae0;
+  border-bottom: 2px solid #283618;
 }
 
 .restaurant-card-body {
@@ -220,8 +232,8 @@ h6 {
 }
 
 .section-list {
-  background-color: #283618;
-  color: #fefae0;
+  border-top: 2px dashed #28361850;
+  border-bottom: 2px dashed #28361850;
   padding: 2.5rem 0;
 }
 
@@ -231,6 +243,42 @@ h6 {
 
 .section-text {
   margin-bottom: 1.25rem;
+}
+
+.footer {
+  background-color: #283618;
+  color: #fefae0;
+  padding: 2.5rem 0;
+  font-weight: 400;
+}
+
+.footer-brand {
+  max-width: 30%;
+}
+
+.footer-title {
+  font-family: 'Yeseva One', sans-serif;
+  margin-bottom: 0.25rem;
+}
+
+.footer-details {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.copyright {
+  background-color: #19220f;
+  color: #fefae0;
+  text-align: center;
+  padding: 1rem 0;
+  font-weight: 400;
 }
 
 @media (max-width: 768px) {
@@ -259,5 +307,14 @@ h6 {
 
   .hero-caption {
     width: auto !important;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-details {
+    width: 100%;
   }
 }
