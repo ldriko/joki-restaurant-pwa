@@ -99,6 +99,5 @@ export const initializeRestaurantList = async (id) => {
   const restaurantListElement = document.querySelector(id);
   if (!restaurantListElement) return;
   const restaurants = await fetchRestaurants();
-  console.log(restaurants);
   renderRestaurantList(restaurantListElement, restaurants);
 };
