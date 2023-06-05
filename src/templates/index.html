@@ -9,8 +9,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Yeseva+One&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
     />
+    <link
+      rel="stylesheet"
+      media="print"
+      onload="this.onload=null;this.removeAttribute('media');"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Yeseva+One&display=swap"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Yeseva+One&display=swap"
+      />
+    </noscript>
   </head>
   <body>
     <main>
@@ -47,7 +60,12 @@
               <button class="btn btn-primary">Mulai</button>
             </div>
             <img
-              src="./images/heros/hero-image.webp"
+              srcset="
+                ./images/heros/hero-480.webp 3x,
+                ./images/heros/hero-720.webp 2x,
+                ./images/heros/hero-900.webp 1x
+              "
+              src="./images/heros/hero-480.webp"
               alt="Hero Image"
               class="hero-image"
             />

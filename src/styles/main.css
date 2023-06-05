@@ -336,4 +336,8 @@ h6 {
   .footer-details {
     width: 100%;
   }
+
+  .hero-container {
+    height: calc(100vh - 12rem);
+  }
 }
