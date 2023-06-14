@@ -21,10 +21,6 @@ textarea {
   min-height: 44px;
 }
 
-button:focus {
-  outline: 2px solid goldenrod;
-}
-
 a {
   color: inherit;
   display: flex;
@@ -179,9 +175,26 @@ h6 {
   cursor: pointer;
 }
 
+.relative {
+  position: relative;
+}
+
+.skip-button {
+  position: absolute;
+  top: 0;
+}
+
+.skip-button:focus {
+  display: block;
+}
+
+.btn:focus {
+  outline: 2px solid goldenrod;
+}
+
 .btn-primary {
   background-color: #283618;
-  color: #fefae0;
+  color: #fefae0 !important;
 }
 
 .btn-secondary {
@@ -252,7 +265,11 @@ h6 {
   border-top: 2px dashed #28361850;
   border-bottom: 2px dashed #28361850;
   padding: 2.5rem 0;
-  scroll-snap-stop: normal;
+  /* scroll-snap-stop: normal; */
+}
+
+.scroll-margin {
+  scroll-margin-top: 80px;
 }
 
 .section-title {

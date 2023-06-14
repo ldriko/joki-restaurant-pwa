@@ -1,14 +1,14 @@
-export const initializeSkipButton = (id, to) => {
-  const button = document.querySelector(id);
-  button.addEventListener('click', () => {
-    button.classList.add('hidden');
-    const element = document.querySelector(to);
-    const headerOffset = 80;
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
+const listenToFirstTab = () => {
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Tab') {
+      document.querySelector('#skipContainer').classList.remove('hidden');
+      document.querySelector('#skipContainer').classList.add('flex');
+    }
   });
+};
+
+export const initializeSkipButton = (id) => {
+  listenToFirstTab();
+  const button = document.querySelector(id);
+  button.addEventListener('click', () => button.classList.add('hidden'));
 };

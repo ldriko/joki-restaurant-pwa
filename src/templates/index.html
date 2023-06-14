@@ -47,10 +47,15 @@
         </div>
       </header>
       <section class="container">
-        <div class="flex justify-center">
-          <button id="skipButton" class="btn btn-primary">
+        <div id="skipContainer" class="hidden justify-center">
+          <a
+            id="skipButton"
+            class="btn btn-primary"
+            tabindex="1"
+            href="#listSection"
+          >
             Skip to content
-          </button>
+          </a>
         </div>
         <div class="hero">
           <div class="hero-container">
@@ -74,7 +79,7 @@
           </div>
         </div>
       </section>
-      <section id="listSection" class="section-list">
+      <section id="listSection" class="scroll-margin section-list">
         <div class="container">
           <h2 class="section-title">Daftar Restoran</h2>
           <p class="section-text">
