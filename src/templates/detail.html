@@ -56,37 +56,69 @@
           Skip to content
         </a>
       </div>
-      <div class="hero">
-        <div class="hero-container">
-          <div class="hero-caption">
-            <h1 class="hero-caption-title">Bingung Cari Restoran?</h1>
-            <p class="hero-caption-text">
-              Kami akan membantumu mencari restaurant terbaik untuk anda.
-            </p>
-            <button class="btn btn-primary">Mulai</button>
+      <div id="restaurantDetail" class="detail-wrapper">
+        <img id="restaurantImage" class="detail-image" />
+        <div class="detail-container">
+          <div class="border-bottom-dashed p-2">
+            <div class="detail-left-detail flex justify-between">
+              <div>
+                <h2 id="restaurantName"></h2>
+                <div><small id="restaurantCity"></small></div>
+                <small id="restaurantAddress"></small>
+              </div>
+              <div>
+                <div class="detail-right-detail flex items-center gap">
+                  <div id="restaurantRating"></div>
+                  <div class="detail-favorite">
+                    <button
+                      id="restaurantFavorite"
+                      class="btn btn-secondary detail-favorite"
+                    >
+                      Tambah Favorit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="restaurantCategories" class="detail-categories"></div>
+            <p id="restaurantDescription" class="detail-description"></p>
           </div>
-          <img
-            srcset="
-              ./images/heros/hero-480.webp 3x,
-              ./images/heros/hero-720.webp 2x,
-              ./images/heros/hero-900.webp 1x
-            "
-            src="./images/heros/hero-480.webp"
-            alt="Hero Image"
-            class="hero-image"
-          />
+          <div class="border-bottom-dashed p-2">
+            <h4 class="mb">Menu</h4>
+            <div class="mb">
+              <div class="restaurant-menu-subtitle"># Makanan</div>
+              <div id="foodList" class="restaurant-menu gap"></div>
+            </div>
+            <div class="mb">
+              <div class="restaurant-menu-subtitle"># Minuman</div>
+              <div id="drinkList" class="restaurant-menu gap"></div>
+            </div>
+          </div>
+          <div class="p-2">
+            <h4 class="mb">Tambahkan Review</h4>
+            <div class="mb">
+              <input
+                id="reviewName"
+                type="text"
+                placeholder="Atas nama"
+                class="input"
+              />
+              <textarea
+                id="reviewText"
+                rows="10"
+                placeholder="Komentar anda"
+                class="input"
+              ></textarea>
+              <button id="reviewSubmit" class="btn btn-primary">Kirim</button>
+            </div>
+            <h4 class="mb">Customer Reviews</h4>
+            <div>
+              <div id="customerReviews" class="customer-reviews gap"></div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
-    <section id="listSection" class="scroll-margin section-list">
-      <div class="container">
-        <h2 class="section-title">Daftar Restoran</h2>
-        <p class="section-text">
-          Temukan restoran yang cocok dengan preferensi anda!
-        </p>
-        <ul id="restaurantList" class="restaurant-list"></ul>
-      </div>
-    </section>
     <footer class="footer">
       <div class="container">
         <div class="footer-container flex justify-between">

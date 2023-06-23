@@ -8,9 +8,12 @@
 }
 
 body {
-  color: #283618;
-  font-weight: 500;
   background-color: #fefae0;
+  color: #283618;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  min-height: 100vh;
 }
 
 a,
@@ -205,7 +208,7 @@ h6 {
 
 .restaurant-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.25rem;
 }
 
@@ -215,6 +218,10 @@ h6 {
 
 .mb {
   margin-bottom: 1.25rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
 }
 
 .restaurant-card {
@@ -257,7 +264,7 @@ h6 {
 
 .restaurant-card-buttons {
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -285,6 +292,7 @@ h6 {
   color: #fefae0;
   padding: 2.5rem 0;
   font-weight: 400;
+  margin-top: auto;
 }
 
 .footer-brand {
@@ -314,6 +322,103 @@ h6 {
   text-align: center;
   padding: 1rem 0;
   font-weight: 400;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+.detail-wrapper {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.detail-image {
+  max-width: 24rem;
+  height: 75vh;
+  object-fit: cover;
+  border: 2px solid #283618;
+}
+
+.detail-container {
+  flex-grow: 1;
+  border: 2px solid #283618;
+}
+
+.p-2 {
+  padding: 2em;
+}
+
+.border-bottom-dashed {
+  border-bottom: 2px dashed #28361850;
+}
+
+.detail-rating {
+  background-color: #283618;
+  color: #fefae0;
+  padding: 0.75rem 1.25rem;
+}
+
+.detail-categories {
+  display: flex;
+  margin: 1em 0;
+  font-size: 0.75em;
+}
+
+.detail-category {
+  border: 2px solid #283618;
+  font-weight: 700;
+  padding: 0.5rem 0.75rem;
+  margin-right: 0.5rem;
+}
+
+.detail-description {
+  font-size: 0.9em;
+}
+
+.restaurant-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  font-size: 0.9em;
+}
+
+.restaurant-menu-subtitle {
+  margin-bottom: 0.5em;
+}
+
+.restaurant-menu-item {
+  border: 2px solid #283618;
+  padding: 0.75rem;
+}
+
+.customer-reviews {
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-review {
+  border: 2px solid #283618;
+  justify-content: space-between;
+  padding: 0.75rem;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+}
+
+.section-padding {
+  padding: 2.5rem 0;
 }
 
 @media (max-width: 768px) {
@@ -356,5 +461,28 @@ h6 {
 
   .hero-container {
     height: calc(100vh - 12rem);
+  }
+
+  .detail-wrapper {
+    flex-direction: column;
+  }
+
+  .detail-image {
+    height: 25vh;
+  }
+
+  .detail-left-detail {
+    flex-direction: column;
+  }
+
+  .detail-right-detail {
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .detail-favorite {
+    width: 100%;
   }
 }

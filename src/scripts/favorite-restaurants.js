@@ -3,6 +3,7 @@ import {
   findFavoriteIndex,
   addFavorite,
   removeFavorite,
+  getFavorites,
 } from './favorite';
 
 const toggleFavoriteButton = (id) => {
@@ -22,27 +23,20 @@ const toggleFavoriteButton = (id) => {
   };
 };
 
-const handleFavorite = (restaurant) => {
-  let request = findFavoriteIndex(restaurant.id);
+const handleFavorite = (id) => {
+  let request = findFavoriteIndex(id);
   request.onsuccess = ({ target: { result } }) => {
     if (result) {
-      request = removeFavorite(restaurant.id);
+      request = removeFavorite(id);
     } else {
-      request = addFavorite(restaurant);
+      request = addFavorite(id);
     }
-    toggleFavoriteButton(restaurant.id);
+    toggleFavoriteButton(id);
   };
 };
 
 const handleOpen = (id) => {
   window.location.href = `/detail.html?id=${id}`;
-};
-
-const fetchRestaurants = async () => {
-  const result = await fetch('https://restaurant-api.dicoding.dev/list').then(
-    (response) => response.json(),
-  );
-  return result.restaurants;
 };
 
 const renderRestaurantList = (restaurantListElement, restaurants) => {
@@ -83,7 +77,7 @@ const renderRestaurantList = (restaurantListElement, restaurants) => {
     likeButton.innerHTML = 'Tambahkan Favorit';
     likeButton.setAttribute('data-id', restaurant.id);
     likeButton.addEventListener('click', () => {
-      handleFavorite(restaurant);
+      handleFavorite(restaurant.id);
     });
     cardButtons.appendChild(likeButton);
     const openButton = document.createElement('button');
@@ -110,11 +104,15 @@ const renderRestaurantList = (restaurantListElement, restaurants) => {
   });
 };
 
-const initializeRestaurantList = async (id) => {
+const initializeFavoriteRestaurants = async (id) => {
   const restaurantListElement = document.querySelector(id);
   if (!restaurantListElement) return;
-  const restaurants = await fetchRestaurants();
-  renderRestaurantList(restaurantListElement, restaurants);
+  initializeDatabase(() => {
+    const request = getFavorites();
+    request.onsuccess = ({ target: { result } }) => {
+      renderRestaurantList(restaurantListElement, result);
+    };
+  });
 };
 
-export default initializeRestaurantList;
+export default initializeFavoriteRestaurants;

@@ -34,7 +34,7 @@
           <a href="/" class="navbar-brand">Restowan</a>
           <div class="navbar-menu flex gap">
             <a href="/" class="navbar-link">Home</a>
-            <a href="/favorites.html" class="navbar-link">Favorites</a>
+            <a href="#" class="navbar-link">Favorites</a>
             <a href="https://github.com" class="navbar-link">About Us</a>
           </div>
           <button class="navbar-burger">
@@ -56,35 +56,11 @@
           Skip to content
         </a>
       </div>
-      <div class="hero">
-        <div class="hero-container">
-          <div class="hero-caption">
-            <h1 class="hero-caption-title">Bingung Cari Restoran?</h1>
-            <p class="hero-caption-text">
-              Kami akan membantumu mencari restaurant terbaik untuk anda.
-            </p>
-            <button class="btn btn-primary">Mulai</button>
-          </div>
-          <img
-            srcset="
-              ./images/heros/hero-480.webp 3x,
-              ./images/heros/hero-720.webp 2x,
-              ./images/heros/hero-900.webp 1x
-            "
-            src="./images/heros/hero-480.webp"
-            alt="Hero Image"
-            class="hero-image"
-          />
-        </div>
-      </div>
     </main>
-    <section id="listSection" class="scroll-margin section-list">
+    <section id="listSection" class="section-padding scroll-margin">
       <div class="container">
-        <h2 class="section-title">Daftar Restoran</h2>
-        <p class="section-text">
-          Temukan restoran yang cocok dengan preferensi anda!
-        </p>
-        <ul id="restaurantList" class="restaurant-list"></ul>
+        <h2 class="section-title">Restoran Favorit</h2>
+        <ul id="favoriteRestaurants" class="restaurant-list"></ul>
       </div>
     </section>
     <footer class="footer">
