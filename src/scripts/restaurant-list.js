@@ -1,40 +1,40 @@
-const checkLiked = (id) => {
-  const liked = localStorage.getItem('likedRestaurants');
-  const likedRestaurants = liked ? JSON.parse(liked) : [];
-  return likedRestaurants.find((restaurant) => restaurant.id === id);
+const checkFavorite = (id) => {
+  const favoriteString = localStorage.getItem('favorites');
+  const favorites = favoriteString ? JSON.parse(favoriteString) : [];
+  return favorites.find((restaurant) => restaurant.id === id);
 };
 
-const toggleLikeButton = (id) => {
-  const likeButton = document.querySelector(`button[data-id="${id}"]`);
-  if (!likeButton) return;
-  const liked = checkLiked(id);
-  if (liked) {
-    likeButton.classList.remove('btn-secondary');
-    likeButton.classList.add('btn-primary');
-    likeButton.innerHTML = 'Disukai &hearts;';
+const toggleFavoriteButton = (id) => {
+  const favoriteButton = document.querySelector(`button[data-id="${id}"]`);
+  if (!favoriteButton) return;
+  const exist = checkFavorite(id);
+  if (exist) {
+    favoriteButton.classList.remove('btn-secondary');
+    favoriteButton.classList.add('btn-primary');
+    favoriteButton.innerHTML = 'Favorit &hearts;';
   } else {
-    likeButton.classList.remove('btn-primary');
-    likeButton.classList.add('btn-secondary');
-    likeButton.innerHTML = 'Suka';
+    favoriteButton.classList.remove('btn-primary');
+    favoriteButton.classList.add('btn-secondary');
+    favoriteButton.innerHTML = 'Tambahkan Favorit';
   }
 };
 
-const handleLike = (e, id) => {
-  const liked = localStorage.getItem('likedRestaurants');
-  const likedRestaurants = liked ? JSON.parse(liked) : [];
+const handleFavorite = (e, id) => {
+  const favoriteString = localStorage.getItem('favorites');
+  const favorites = favoriteString ? JSON.parse(favoriteString) : [];
 
-  const restaurant = likedRestaurants.find((r) => r.id === id);
+  const restaurant = favorites.find((r) => r.id === id);
 
   if (restaurant) {
-    const index = likedRestaurants.indexOf(restaurant);
-    likedRestaurants.splice(index, 1);
+    const index = favorites.indexOf(restaurant);
+    favorites.splice(index, 1);
   } else {
-    likedRestaurants.push({ id });
+    favorites.push({ id });
   }
 
-  localStorage.setItem('likedRestaurants', JSON.stringify(likedRestaurants));
+  localStorage.setItem('favorites', JSON.stringify(favorites));
 
-  toggleLikeButton(id);
+  toggleFavoriteButton(id);
 };
 
 const handleOpen = (id) => {
@@ -85,7 +85,9 @@ const renderRestaurantList = (restaurantListElement, restaurants) => {
     likeButton.classList.add('btn', 'btn-secondary');
     likeButton.innerHTML = 'Suka';
     likeButton.setAttribute('data-id', restaurant.id);
-    likeButton.addEventListener('click', (e) => handleLike(e, restaurant.id));
+    likeButton.addEventListener('click', (e) => {
+      handleFavorite(e, restaurant.id);
+    });
     cardButtons.appendChild(likeButton);
     const openButton = document.createElement('button');
     openButton.classList.add('btn', 'btn-primary');
@@ -102,7 +104,7 @@ const renderRestaurantList = (restaurantListElement, restaurants) => {
     card.appendChild(cardBody);
 
     element.appendChild(card);
-    toggleLikeButton(restaurant.id);
+    toggleFavoriteButton(restaurant.id);
   });
 };
 
