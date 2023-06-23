@@ -1,8 +1,8 @@
 import '../styles/main.css';
 
-import { initializeNavBar } from './appbar';
-import { initializeRestaurantList } from './restaurant-list';
-import { initializeSkipButton } from './skip';
+import initializeNavBar from './appbar';
+import initializeRestaurantList from './restaurant-list';
+import initializeSkipButton from './skip';
 
 const prod = process.env.NODE_ENV === 'production';
 
@@ -13,5 +13,7 @@ if (navigator.serviceWorker && prod) {
 }
 
 initializeNavBar('navbar');
-initializeRestaurantList('#restaurantList');
+if (document.querySelector('#restaurantList')) {
+  initializeRestaurantList('#restaurantList');
+}
 initializeSkipButton('#skipButton');

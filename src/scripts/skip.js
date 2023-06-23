@@ -7,8 +7,10 @@ const listenToFirstTab = () => {
   });
 };
 
-export const initializeSkipButton = (id) => {
+const initializeSkipButton = (id) => {
   listenToFirstTab();
   const button = document.querySelector(id);
   button.addEventListener('click', () => button.classList.add('hidden'));
 };
+
+export default initializeSkipButton;

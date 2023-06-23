@@ -1,4 +1,4 @@
-export const initializeNavBar = (id) => {
+const initializeNavBar = (id) => {
   const navbar = document.getElementById(id);
   const menu = navbar.querySelector('.navbar-menu');
   const burger = navbar.querySelector('.navbar-burger');
@@ -7,3 +7,5 @@ export const initializeNavBar = (id) => {
     menu.classList.toggle('active');
   });
 };
+
+export default initializeNavBar;

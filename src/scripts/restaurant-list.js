@@ -23,9 +23,7 @@ const handleLike = (e, id) => {
   const liked = localStorage.getItem('likedRestaurants');
   const likedRestaurants = liked ? JSON.parse(liked) : [];
 
-  const restaurant = likedRestaurants.find(
-    (restaurant) => restaurant.id === id
-  );
+  const restaurant = likedRestaurants.find((r) => r.id === id);
 
   if (restaurant) {
     const index = likedRestaurants.indexOf(restaurant);
@@ -39,22 +37,27 @@ const handleLike = (e, id) => {
   toggleLikeButton(id);
 };
 
+const handleOpen = (id) => {
+  window.location.href = `/detail.html?id=${id}`;
+};
+
 const fetchRestaurants = async () => {
-  const result = await fetch('./data/DATA.json').then((response) =>
-    response.json()
+  const result = await fetch('https://restaurant-api.dicoding.dev/list').then(
+    (response) => response.json(),
   );
   return result.restaurants;
 };
 
 const renderRestaurantList = (restaurantListElement, restaurants) => {
-  restaurantListElement.innerHTML = '';
+  const element = restaurantListElement;
+  element.innerHTML = '';
   restaurants.forEach((restaurant) => {
     const card = document.createElement('li');
     card.classList.add('restaurant-card');
 
     const cardImage = document.createElement('img');
     cardImage.classList.add('restaurant-card-image');
-    cardImage.src = restaurant.pictureId;
+    cardImage.src = `https://restaurant-api.dicoding.dev/images/medium/${restaurant.pictureId}`;
     cardImage.alt = restaurant.name;
     cardImage.setAttribute('loading', 'lazy');
 
@@ -84,6 +87,12 @@ const renderRestaurantList = (restaurantListElement, restaurants) => {
     likeButton.setAttribute('data-id', restaurant.id);
     likeButton.addEventListener('click', (e) => handleLike(e, restaurant.id));
     cardButtons.appendChild(likeButton);
+    const openButton = document.createElement('button');
+    openButton.classList.add('btn', 'btn-primary');
+    openButton.innerHTML = 'Buka';
+    openButton.setAttribute('data-id', restaurant.id);
+    openButton.addEventListener('click', () => handleOpen(restaurant.id));
+    cardButtons.appendChild(openButton);
 
     card.appendChild(cardImage);
     cardBody.appendChild(cardName);
@@ -92,14 +101,16 @@ const renderRestaurantList = (restaurantListElement, restaurants) => {
     cardBody.appendChild(cardButtons);
     card.appendChild(cardBody);
 
-    restaurantListElement.appendChild(card);
+    element.appendChild(card);
     toggleLikeButton(restaurant.id);
   });
 };
 
-export const initializeRestaurantList = async (id) => {
+const initializeRestaurantList = async (id) => {
   const restaurantListElement = document.querySelector(id);
   if (!restaurantListElement) return;
   const restaurants = await fetchRestaurants();
   renderRestaurantList(restaurantListElement, restaurants);
 };
+
+export default initializeRestaurantList;
