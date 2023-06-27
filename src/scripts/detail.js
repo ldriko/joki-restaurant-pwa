@@ -22,15 +22,15 @@ const toggleFavoriteButton = (id) => {
   };
 };
 
-const handleFavorite = (id) => {
-  let request = findFavoriteIndex(id);
+const handleFavorite = (restaurant) => {
+  let request = findFavoriteIndex(restaurant.id);
   request.onsuccess = ({ target: { result } }) => {
     if (result) {
-      request = removeFavorite(id);
+      request = removeFavorite(restaurant.id);
     } else {
-      request = addFavorite(id);
+      request = addFavorite(restaurant);
     }
-    toggleFavoriteButton(id);
+    toggleFavoriteButton(restaurant.id);
   };
 };
 
@@ -108,15 +108,17 @@ const renderRestaurantDetail = (restaurant) => {
   const image = document.querySelector('#restaurantImage');
   image.src = `https://restaurant-api.dicoding.dev/images/medium/${restaurant.pictureId}`;
 
-  const [name, city, rating, description] = [
+  const [name, city, address, rating, description] = [
     document.querySelector('#restaurantName'),
     document.querySelector('#restaurantCity'),
+    document.querySelector('#restaurantAddress'),
     document.querySelector('#restaurantRating'),
     document.querySelector('#restaurantDescription'),
   ];
 
   name.innerHTML = restaurant.name;
   city.innerHTML = restaurant.city;
+  address.innerHTML = restaurant.address;
   rating.innerHTML = `${restaurant.rating} &starf;`;
   description.innerHTML = restaurant.description;
 
@@ -132,22 +134,23 @@ const getRestaurantDetail = async (id) => {
   ).then((response) => response.json());
 
   if (!result || result.error) {
-    return;
+    return null;
   }
 
   const { restaurant } = result;
   renderRestaurantDetail(restaurant);
+  return restaurant;
 };
 
 const initializeRestaurantDetail = async (id) => {
-  getRestaurantDetail(id);
+  const restaurant = await getRestaurantDetail(id);
   const submitButton = document.querySelector('#reviewSubmit');
   submitButton.addEventListener('click', () => postReview(id));
 
   initializeDatabase(() => {
     document
       .querySelector('#restaurantFavorite')
-      .addEventListener('click', () => handleFavorite(id));
+      .addEventListener('click', () => handleFavorite(restaurant));
     toggleFavoriteButton(id);
   });
 };
