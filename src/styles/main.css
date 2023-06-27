@@ -134,7 +134,6 @@ h6 {
 .hero-container {
   position: relative;
   display: flex;
-  margin: 1.25rem 0;
   border: 2px solid #283618;
   height: 36rem;
 }
@@ -419,6 +418,16 @@ h6 {
 
 .section-padding {
   padding: 2.5rem 0;
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    padding: 0 1.25rem;
+  }
+
+  .hero-container {
+    margin: 1.25rem 0;
+  }
 }
 
 @media (max-width: 768px) {

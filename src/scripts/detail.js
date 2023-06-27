@@ -107,6 +107,7 @@ const renderCategories = (categories) => {
 const renderRestaurantDetail = (restaurant) => {
   const image = document.querySelector('#restaurantImage');
   image.src = `https://restaurant-api.dicoding.dev/images/medium/${restaurant.pictureId}`;
+  image.alt = restaurant.name;
 
   const [name, city, address, rating, description] = [
     document.querySelector('#restaurantName'),
