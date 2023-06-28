@@ -1,5 +1,4 @@
 const { merge } = require('webpack-merge');
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -21,10 +20,4 @@ module.exports = merge(common, {
       },
     ],
   },
-  plugins: [
-    new WorkboxWebpackPlugin.GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true,
-    }),
-  ],
 });

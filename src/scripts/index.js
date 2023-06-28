@@ -6,9 +6,7 @@ import initializeRestaurantList from './restaurant-list';
 import initializeSkipButton from './skip';
 import initializeFavoriteRestaurants from './favorite-restaurants';
 
-const prod = process.env.NODE_ENV === 'production';
-
-if (navigator.serviceWorker && prod) {
+if (navigator.serviceWorker) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./service-worker.js');
   });
